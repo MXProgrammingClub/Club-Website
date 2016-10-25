@@ -1,0 +1,22 @@
+{
+	"name": "club-website",
+	"version": "0.0.1",
+	"description": "Official Middlesex Programming Club website",
+	"dependencies": {
+		"mime": "^1.3.4"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"start": "cd site && node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MXProgrammingClub/Club-Website.git"
+	},
+	"author": "MXProgrammingClub",
+	"license": "BSD-3-Clause",
+	"bugs": {
+		"url": "https://github.com/MXProgrammingClub/Club-Website/issues"
+	},
+	"homepage": "https://github.com/MXProgrammingClub/Club-Website#readme"
+}
