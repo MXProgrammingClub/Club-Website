@@ -61,6 +61,11 @@ div {
 	position: relative;
 }
 
+h3 {
+	font-family: 'Sanchez', serif;
+	background-color: rgb(46, 44, 45);
+}
+
 h2 {
 	font-family: 'Sanchez', serif;
 	font-size: 48px;
