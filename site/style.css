@@ -5,7 +5,6 @@ body {
 h1 {
 	font-family: 'Sanchez', serif;
 	font-size: 72px;
-<<<<<<< HEAD
 	background-color: #6D001A;
 	font-color: #000000;
 	width: 100%;
@@ -29,18 +28,3 @@ h1 {
     column-gap: 100px;
 }
 
-	text-align: center;
-}
-
-=======
-	background-color: rgb(109, 0, 26);
-	font-color: #FFF;
-	position: relative;
-}
-
-h2 {
-	font-family: 'Sanchez', serif;
-	font-size: 48px;
-	font-color: #FFF;
-}
->>>>>>> origin/master
