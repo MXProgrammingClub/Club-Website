@@ -12,9 +12,7 @@ h1 {
 	height: 100px;
 	padding: 0px;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 a:link {
 	color: #000000;
 }
@@ -28,9 +26,10 @@ a:active {
 	color: #000000;
 }
 #pageOne {
-=======
+
+}
+
 #homebutton {
->>>>>>> origin/master
 	-webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
@@ -47,7 +46,6 @@ a:active {
     -moz-column-gap: 100px; /* Firefox */
     column-gap: 100px;
 }
->>>>>>> origin/master
 
 div.scrollmenu {
 	background-color: #333;
@@ -65,6 +63,7 @@ div.scrollmenu a {
 
 div.scrollmenu a:hover {
 	background-color: #777;
+}
 /* Bordered form */
 form {
 	border: 3px solid #f1f1f1;
