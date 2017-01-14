@@ -51,19 +51,38 @@ public class Data
 	 * @param first THe user's first name.
 	 * @param last The user's last name
 	 * @param password The user's password.
-	 * @return The id created for the user, or -1 if unsuccessful.
+	 * @return Whether the user was added successfully.
 	 */
-	public static void addUser(String email, String first, String last, String password)
+	public static boolean addUser(String email, String first, String last, String password)
 	{
 		String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
 		try
 		{
 			s.executeUpdate("INSERT INTO users VALUES(DEFAULT, \'" + email + "\', \'" + first + "\', \'" + last + "\', \'" + hashed + "\')");
-			
+			return true;
 		}
-		catch (SQLException e)
+		catch(SQLException e)
 		{
-			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	/**
+	 * Adds a new club to the system.
+	 * @param name The club name.
+	 * @param description A short description of the club.
+	 * @return Whether the club was added successfully.
+	 */
+	public static boolean addClub(String name, String description)
+	{
+		try
+		{
+			s.executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\')");
+			return true;
+		}
+		catch(SQLException e)
+		{
+			return false;
 		}
 	}
 }
