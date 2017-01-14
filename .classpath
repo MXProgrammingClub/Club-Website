@@ -15,5 +15,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/postgresql-9.4.1212.jre6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jBCrypt-0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

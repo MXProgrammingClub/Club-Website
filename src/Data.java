@@ -3,6 +3,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  * Handles storage and retrieval of information from the database.
  * @author Julia McClellan
@@ -53,9 +55,10 @@ public class Data
 	 */
 	public static void addUser(String email, String first, String last, String password)
 	{
+		String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
 		try
 		{
-			s.executeUpdate("INSERT INTO users VALUES(DEFAULT, \'" + email + "\', \'" + first + "\', \'" + last + "\', \'" + password + "\')");
+			s.executeUpdate("INSERT INTO users VALUES(DEFAULT, \'" + email + "\', \'" + first + "\', \'" + last + "\', \'" + hashed + "\')");
 			
 		}
 		catch (SQLException e)
