@@ -46,6 +46,24 @@ public class Data
 	}
 	
 	/**
+	 * Calls the Statement's executeUpdate method with the given string of SQL.
+	 * @param sql The SQL command to execute.
+	 * @return Whether the update was successful.
+	 */
+	private static boolean executeUpdate(String sql)
+	{
+		try
+		{
+			s.executeUpdate(sql);
+			return true;
+		}
+		catch(SQLException e)
+		{
+			return false;
+		}
+	}
+	
+	/**
 	 * Adds a new user to the system.
 	 * @param email The user's verified email address.
 	 * @param first THe user's first name.
@@ -56,15 +74,52 @@ public class Data
 	public static boolean addUser(String email, String first, String last, String password)
 	{
 		String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-		try
-		{
-			s.executeUpdate("INSERT INTO users VALUES(DEFAULT, \'" + email + "\', \'" + first + "\', \'" + last + "\', \'" + hashed + "\')");
-			return true;
-		}
-		catch(SQLException e)
-		{
-			return false;
-		}
+		return executeUpdate("INSERT INTO users VALUES(DEFAULT, \'" + email + "\', \'" + first + "\', \'" + last + "\', \'" + hashed + "\')");
+	}
+	
+	/**
+	 * Updates the email address of the user with the given id.
+	 * @param id The id of the user whose information to update.
+	 * @param email The user's new email.
+	 * @return If update was successful.
+	 */
+	public static boolean updateEmail(int id, String email)
+	{
+		return executeUpdate("UPDATE users SET email = \'" + email + "\' WHERE id = " + id);
+	}
+	
+	/**
+	 * Updates the first name of the user with the given id.
+	 * @param id The id of the user whose information to update.
+	 * @param name The user's first name.
+	 * @return If update was successful.
+	 */
+	public static boolean updateFirstName(int id, String name)
+	{
+		return executeUpdate("UPDATE users SET first_name = \'" + name + "\' WHERE id = " + id);
+	}
+	
+	/**
+	 * Updates the last name of the user with the given id.
+	 * @param id The id of the user whose information to update.
+	 * @param name The user's last name.
+	 * @return If update was successful.
+	 */
+	public static boolean updateLastName(int id, String name)
+	{
+		return executeUpdate("UPDATE users SET last_name = \'" + name + "\' WHERE id = " + id);
+	}
+	
+	/**
+	 * Updates the password of the user with the given id.
+	 * @param id The id of the user whose information to update.
+	 * @param password The user's password.
+	 * @return If update was successful.
+	 */
+	public static boolean updatePassword(int id, String password)
+	{
+		String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+		return executeUpdate("UPDATE users SET password = \'" + hashed + "\' WHERE id = " + id);
 	}
 	
 	/**
@@ -75,14 +130,28 @@ public class Data
 	 */
 	public static boolean addClub(String name, String description)
 	{
-		try
-		{
-			s.executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\')");
-			return true;
-		}
-		catch(SQLException e)
-		{
-			return false;
-		}
+		return executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\')");
+	}
+	
+	/**
+	 * Updates the name of the club with the given id.
+	 * @param id The id of the club whose information to update.
+	 * @param name The name of the club.
+	 * @return If the update was successful.
+	 */
+	public static boolean updateClubName(int id, String name)
+	{
+		return executeUpdate("UPDATE clubs SET name = \'" + name + "\' WHERE id = " + id);
+	}
+	
+	/**
+	 * Updates the name of the club with the given id.
+	 * @param id The id of the club whose information to update.
+	 * @param name The name of the club.
+	 * @return If the update was successful.
+	 */
+	public static boolean updateClubDescription(int id, String description)
+	{
+		return executeUpdate("UPDATE clubs SET description = \'" + description + "\' WHERE id = " + id);
 	}
 }
