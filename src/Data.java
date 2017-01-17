@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -64,9 +65,111 @@ public class Data
 	}
 	
 	/**
+	 * Calls the Statement's executeQuery method with the given string of SQL.
+	 * @param sql The SQL command to execute.
+	 * @return The ResultSet found, or null if the query was unsuccessful.
+	 */
+	private static ResultSet executeQuery(String sql)
+	{
+		try
+		{
+			return s.executeQuery(sql);
+		}
+		catch(SQLException e)
+		{
+			return null;
+		}
+	}
+	
+	/**
+	 * Calls the given ResultSet's getInt method with the given column and returns the retrieved integer.
+	 * @param result The ResultSet to retrieve the integer from.
+	 * @param col The number of the column to check.
+	 * @return The retrieved integer, or -1 if unsuccessful: may lead to errors if -1 is stored in the database.
+	 */
+	private static int getIntFromRS(ResultSet result, int col)
+	{
+		try
+		{
+			return result.getInt(col);
+		}
+		catch(SQLException e)
+		{
+			return -1;
+		}
+	}
+	
+	/**
+	 * Calls the given ResultSet's getString method with the given column and returns the retrieved string.
+	 * @param result The ResultSet to retrieve the string from.
+	 * @param col The number of the column to check.
+	 * @return The retrieved string, or null if unsuccessful.
+	 */
+	private static String getStringFromRS(ResultSet result, int col)
+	{
+		try
+		{
+			return result.getString(col);
+		}
+		catch(SQLException e)
+		{
+			return null;
+		}
+	}
+	
+	/**
+	 * Calls the ResultSet's next method.
+	 * @param result The ResultSet to move to the next row of.
+	 */
+	private static void next(ResultSet result)
+	{
+		try
+		{
+			result.next();
+		}
+		catch(SQLException e) {}
+	}
+	
+	/**
+	 * Returns the current row number of the given ResultSet.
+	 * @param result The ResultSet to check for the row number of.
+	 * @return The row currently pointed to, or 0 if there is an error.
+	 */
+	private static int getRow(ResultSet result)
+	{
+		try
+		{
+			return result.getRow();
+		}
+		catch(SQLException e)
+		{
+			return 0;
+		}
+	}
+	
+	/**
+	 * Verifies the email and password combination to log a user into their account.
+	 * @param email The user's email.
+	 * @param password The password to verify.
+	 * @return The user's id number, or -1 if login was unsuccessful.
+	 */
+	public static int login(String email, String password)
+	{
+		ResultSet result = executeQuery("SELECT id, password FROM users WHERE email = \'" + email + "\'");
+		if(result == null) return -1;
+		
+		next(result);
+		if(getRow(result) == 0) return -1; // If there are no rows, the row number is 0.
+		
+		String hashed = getStringFromRS(result, 2);
+		if(!BCrypt.checkpw(password, hashed)) return -1;
+		else return getIntFromRS(result, 1);
+	}
+	
+	/**
 	 * Adds a new user to the system.
 	 * @param email The user's verified email address.
-	 * @param first THe user's first name.
+	 * @param first The user's first name.
 	 * @param last The user's last name
 	 * @param password The user's password.
 	 * @return Whether the user was added successfully.
