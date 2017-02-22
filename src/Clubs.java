@@ -17,15 +17,14 @@ public class Clubs
 	{
 		ResultSet rs = Data.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'");
 		Data.next(rs);
-		System.out.println("1");
 		if(Data.getRow(rs) != 0) return false; //clubs can't have the same name
-		System.out.println("2");
+		
 		if(!Data.executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\')")) return false;
 		
 		rs = Data.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'");
 		Data.next(rs);
 		int id = Data.getIntFromRS(rs, 1);
-		System.out.println("3");
+		
 		for(int head: heads)
 		{
 			if(!Data.executeUpdate("INSERT INTO members VALUES(" + id + ", " + head + ", TRUE)")) return false;
