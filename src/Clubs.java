@@ -1,4 +1,3 @@
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -16,7 +15,22 @@ public class Clubs
 	 */
 	public static boolean addClub(String name, String description, int[] heads)
 	{
-		return Data.executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\', \'{}\', \'" + Data.arrayToString(heads) + "\')");
+		ResultSet rs = Data.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'");
+		Data.next(rs);
+		System.out.println("1");
+		if(Data.getRow(rs) != 0) return false; //clubs can't have the same name
+		System.out.println("2");
+		if(!Data.executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\')")) return false;
+		
+		rs = Data.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'");
+		Data.next(rs);
+		int id = Data.getIntFromRS(rs, 1);
+		System.out.println("3");
+		for(int head: heads)
+		{
+			if(!Data.executeUpdate("INSERT INTO members VALUES(" + id + ", " + head + ", TRUE)")) return false;
+		}
+		return true;
 	}
 	
 	/**
@@ -43,70 +57,84 @@ public class Clubs
 	
 	/**
 	 * Sorts the clubs into groups based on the user's participation. 
-	 * @param userID
-	 * @return  
+	 * @param userID The user to sort the clubs for.
+	 * @return The clubs in an array of ArrayLists, with the first having clubs the user is not part of, the second where the user is a member, and the third where the
+	 * member is a head.
 	 */
-	public static ResultSet[] getClubs(int userID)
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static ArrayList<Integer>[] getClubs(int userID)
 	{
-		ResultSet membership = Data.executeQuery("SELECT id, members, heads FROM clubs");
+		ArrayList[] temp = new ArrayList[3];
+		ArrayList<Integer>[] result = (ArrayList<Integer>[])temp;
 		
-		ArrayList<ArrayList<Integer>> groups = new ArrayList<ArrayList<Integer>>(3);
-		for(int i = 0; i < 3; i++)
-		{
-			groups.add(new ArrayList<Integer>());
-		}
+		ResultSet clubs = Data.executeQuery("SELECT club FROM members WHERE user = " + userID + " AND is_head = FALSE");
+		result[1] = convertToArray(clubs);
+		clubs = Data.executeQuery("SELECT club FROM members WHERE user = " + userID + " AND is_head = TRUE");
+		result[2] = convertToArray(clubs);
 		
-		while(Data.next(membership))
+		String str = "";
+		for(int i = 1; i < 3; i++)
 		{
-			if(contains(membership, 3, userID)) // user is a head of a club
+			for(int id: result[i])
 			{
-				groups.get(2).add(new Integer(Data.getIntFromRS(membership, 1)));
-			}
-			else if(contains(membership, 2, userID)) // user is member of club
-			{
-				groups.get(1).add(new Integer(Data.getIntFromRS(membership, 1)));
-			}
-			else // user is not part of club
-			{
-				groups.get(0).add(new Integer(Data.getIntFromRS(membership, 1)));
+				str += id + ", ";
 			}
 		}
+		if(str.length() != 0) str = str.substring(0, str.length() - 2);
 		
-		ResultSet[] information = new ResultSet[3];
-		for(int i = 0; i < 3; i++)
+		clubs = Data.executeQuery("SELECT id FROM clubs WHERE NOT id in (" + str + ")");
+		result[0] = convertToArray(clubs);
+		
+		return result;
+	}
+	
+	private static ArrayList<Integer> convertToArray(ResultSet data)
+	{
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		for(; Data.next(data); Data.afterLast(data))
 		{
-			String str = groups.get(i).toString();
-			str = str.substring(1, str.length() - 1);
-			information[i] = Data.executeQuery("SELECT id, name, description, heads FROM clubs WHERE id in (" + str + ")");
+			result.add(Data.getIntFromRS(data, 1));
 		}
-		return information;
+		return result;
 	}
 	
 	/**
-	 * Returns whether the userID is in the array stored in the given column of the ResultSet.
-	 * @param rs The ResultSet with the array.
-	 * @param col The column of the array.
-	 * @param userID The user to look for.
-	 * @return Whether the user is in the group
+	 * Adds a member to the club. Before calling, it should be verified that the user is not already a member of the club.
+	 * @param clubID The ID of the club to add a member to.
+	 * @param userID The ID of the user to add to the club.
+	 * @return Whether the update was successful.
 	 */
-	private static boolean contains(ResultSet rs, int col, int userID)
+	public static boolean addMember(int clubID, int userID)
 	{
-		Array a = Data.getArrayFromRS(rs, col);
-		if(a == null) return false;
-		Integer[] members = (Integer[])Data.getArray(a);
-		for(Integer id: members)
-		{
-			if(id == userID)
-			{
-				return true;
-			}
-		}
-		return false;
+		return Data.executeUpdate("INSERT INTO members VALUES(" + clubID + ", " + userID + ", FALSE)");
+	}
+	
+	/**
+	 * Removes the given member from the club.
+	 * @param clubID The club to remove the member from.
+	 * @param userID The user to remove from the club.
+	 * @return Whether the operation was successful.
+	 */
+	public static boolean removeMember(int clubID, int userID)
+	{
+		return Data.executeQuery("DELETE FROM members WHERE club = " + clubID + " AND user = " + userID) != null;
+	}
+	
+	/**
+	 * Adds a head to the club. Before calling, it should be verified that the user is not already a head of the club.
+	 * @param clubID The ID of the club to add a head to.
+	 * @param userID The ID of the user to add to the club.
+	 * @return Whether the update was successful.
+	 */
+	public static boolean addHead(int clubID, int userID)
+	{
+		return Data.executeUpdate("INSERT INTO members VALUES(" + clubID + ", " + userID + ", TRUE)");
 	}
 	
 	public static void main(String[] args)
 	{
 		Data.connect();
-		System.out.println(getClubs(1));
+		
+		System.out.println(addClub("Programming Club", "description here", new int[]{1, 2, 3}));
 	}
 }

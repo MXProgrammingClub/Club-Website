@@ -11,7 +11,7 @@ import java.sql.Statement;
  */
 public class Data
 {
-	private static final String DB_NAME = "clubs", ADMIN = "postgres", PASS = "password";
+	private static final String DB_NAME = "clubs", ADMIN = "postgres", PASS = "!General10";
 	
 	private static Connection c = null;
 	private static Statement s = null;
@@ -75,7 +75,7 @@ public class Data
 			return s.executeQuery(sql);
 		}
 		catch(SQLException e)
-		{
+		{e.printStackTrace();
 			return null;
 		}
 	}
@@ -180,6 +180,23 @@ public class Data
 	}
 	
 	/**
+	 * Checks whether the cursor of the ResultSet is currently after the last row.
+	 * @param result The ResultSet to check.
+	 * @return Whether the cursor is after the last row, or true if there is an error.
+	 */
+	public static boolean afterLast(ResultSet result)
+	{
+		try
+		{
+			return result.isAfterLast();
+		}
+		catch(SQLException e)
+		{
+			return true;
+		}
+	}
+	
+	/**
 	 * A toString method for an integer array to correspond with SQL syntax.
 	 * @param a The array to represent as a string.
 	 * @return The string version of the array.
@@ -194,5 +211,11 @@ public class Data
 		}
 		return str.substring(0, str.length() - 2) + "}";
 			
+	}
+	
+	public static void main(String[] args)
+	{
+		connect();
+		Clubs.addClub("Programming Club", "description here", new int[]{1, 2, 3});
 	}
 }
