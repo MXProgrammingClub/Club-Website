@@ -66,9 +66,9 @@ public class Clubs
 		ArrayList[] temp = new ArrayList[3];
 		ArrayList<Integer>[] result = (ArrayList<Integer>[])temp;
 		
-		ResultSet clubs = Data.executeQuery("SELECT club FROM members WHERE user = " + userID + " AND is_head = FALSE");
+		ResultSet clubs = Data.executeQuery("SELECT club FROM members WHERE \"user\" = " + userID + " AND is_head = FALSE");
 		result[1] = convertToArray(clubs);
-		clubs = Data.executeQuery("SELECT club FROM members WHERE user = " + userID + " AND is_head = TRUE");
+		clubs = Data.executeQuery("SELECT club FROM members WHERE \"user\" = " + userID + " AND is_head = TRUE");
 		result[2] = convertToArray(clubs);
 		
 		String str = "";
@@ -128,12 +128,5 @@ public class Clubs
 	public static boolean addHead(int clubID, int userID)
 	{
 		return Data.executeUpdate("INSERT INTO members VALUES(" + clubID + ", " + userID + ", TRUE)");
-	}
-	
-	public static void main(String[] args)
-	{
-		Data.connect();
-		
-		System.out.println(addClub("Programming Club", "description here", new int[]{1, 2, 3}));
 	}
 }
