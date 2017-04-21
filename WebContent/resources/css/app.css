@@ -1,0 +1,142 @@
+
+body {
+	background-color: #2E2C2D;
+}
+
+
+ #menu-text {
+	font-family: 'Sanchez', serif;
+	font-size: 72px;
+	background-color: #6D001A;
+	color: #FFF;
+	color: rgba(255, 255, 255, .95);
+	width: 100%;
+	height: 100px;
+	padding: 0px;
+	font-weight: 100;
+}
+
+#list {
+	font-family: 'Sanchez', serif;
+	color: #2E2C2D;
+	color: #FFF;
+}
+
+h3 {
+	text-align: center;
+}
+#program {
+	border-style: solid;
+	background-color: #8F9190;
+}
+
+
+#comSci {
+	border: solid;
+	background-color: #8F9190;
+
+}
+
+#bottom {
+	height: 100px;
+	width: 100%;
+	position: relative;
+	top: 200px;
+	background-color: #6D001A;
+}
+
+#copyright {
+	position: relative;
+	color: #FFF;
+}
+
+a:link {
+	color: #000000;
+}
+a:visited {
+	color: #000000;
+}
+a:hover{
+	color: #000000;
+}
+a:active {
+	color: #000000;
+}
+#pageOne {
+
+}
+
+}
+
+div.scrollmenu {
+	background-color: #333;
+	overflow: auto;
+	white-space: nowrap;
+}
+div.scrollmenu a {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+}
+
+
+div.scrollmenu a:hover {
+	background-color: #777;
+}
+/* Bordered form */
+form {
+	border: 3px solid #f1f1f1;
+}
+
+
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+
+.cancelbtn {
+	width: auto;
+	padding: 10px 18px;
+	background-color: #f44336;
+}
+
+
+.imgcontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+}
+
+
+img.avatar {
+	width: 40%;
+	border-radius: 50%;
+}
+
+
+.container {
+	padding: 16px;
+}
+
+
+span.psw {
+	float: right;
+	padding-top: 16px;
+}
+
+
+@media screen and (max-width: 300px) {
+	span.psw {
+    	display: block;
+    	float: none;
+    }
+	.cancelbtn {
+    	width: 100%;
+    }
+}

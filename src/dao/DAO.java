@@ -1,6 +1,7 @@
+package dao;
+
 import java.sql.Array;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,40 +10,22 @@ import java.sql.Statement;
  * Handles storage and retrieval of information from the database.
  * @author Julia McClellan
  */
-public class Data
+public class DAO
 {
-	private static final String DB_NAME = "clubs", ADMIN = "postgres", PASS = "!General10";
-	
-	private static Connection c = null;
-	private static Statement s = null;
-	
 	/**
-	 * Connects to the database. Should be done on startup to enable all future operations.
-	 * @return Whether connection was successful.
+	 * Creates a statement.
+	 * @return The statement
 	 */
-	public static boolean connect()
+	public static Statement statement(Connection c)
 	{
-	    try
-	    {
-	    	Class.forName("org.postgresql.Driver");
-	    	c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + DB_NAME, ADMIN, PASS);
-	    	s = c.createStatement();
-	    }
-	    catch (Exception e)
-	    {
-	    	e.printStackTrace();
-	    	return false;
-	    }
-	    return true;
-	}
-	
-	/**
-	 * Returns whether there is currently a connection to the database.
-	 * @return If the Connection object is not null.
-	 */
-	public static boolean isConnected()
-	{
-		return c != null;
+		try
+		{
+			return c.createStatement();
+		}
+		catch(SQLException e)
+		{
+			return null;
+		}
 	}
 	
 	/**
@@ -50,7 +33,7 @@ public class Data
 	 * @param sql The SQL command to execute.
 	 * @return Whether the update was successful.
 	 */
-	public static boolean executeUpdate(String sql)
+	public static boolean executeUpdate(String sql, Statement s)
 	{
 		try
 		{
@@ -68,7 +51,7 @@ public class Data
 	 * @param sql The SQL command to execute.
 	 * @return The ResultSet found, or null if the query was unsuccessful.
 	 */
-	public static ResultSet executeQuery(String sql)
+	public static ResultSet executeQuery(String sql, Statement s)
 	{
 		try
 		{
@@ -209,13 +192,6 @@ public class Data
 		{
 			str += i + ", ";
 		}
-		return str.substring(0, str.length() - 2) + "}";
-			
-	}
-	
-	public static void main(String[] args)
-	{
-		connect();
-		Clubs.addClub("Programming Club", "description here", new int[]{1, 2, 3});
+		return str.substring(0, str.length() - 2) + "}";	
 	}
 }

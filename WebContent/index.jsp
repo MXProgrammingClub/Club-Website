@@ -3,14 +3,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-	<link href="style.css" rel="stylesheet" type="text/css">
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/foundation.css">
+    <link rel="stylesheet" href="resources/css/app.css">
+
+	<script src="resources/js/vendor/jquery.js"></script>
+    <script src="resources/js/vendor/what-input.js"></script>
+    <script src="resources/js/vendor/foundation.js"></script>
+    <script src="resources/js/app.js"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
-<head> 
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<title> Middlesex Clubs </title> 
+	<title>
+		Middlesex Clubs
+	</title>
 
 </head>
 
@@ -18,18 +28,22 @@
 
 	<h1>Middlesex Clubs</h1>
 
-		<h2 id="homebutton">Home</h2>
-		<h2 id="newsbutton">News</h2>
-	
-	<h2>Schedule</h2>
+	<h4 id="pageOne">
 
-	<form action="send.jsp" method="post">
-		<input type="text" name="subject" value="Subject"><br>
-		<input id="input" type="text" name="body"><br>
-		<input type="submit" value="Send">
-	</form>
-	
-		<!-- </div> -->
+		<form action="action_page.php">
+			<div class="container">
+				<label><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+				<label><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+				<button type="submit">Login</button>
+			</div>
+			<div class="container">
+				<span class="psw">Forgot <a href="#">password?</a></span>
+			</div>
+
+		</form>
+	</h4>
 </body>
 
 </html>

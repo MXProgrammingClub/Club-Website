@@ -1,11 +1,17 @@
+package dao;
+
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+
+import controller.ConnectionController;
 
 /**
  * Methods to create, access, and modify club information.
  * @author Julia
  */
-public class Clubs
+public class ClubDAO
 {
 	/**
 	 * Adds a new club to the system.
@@ -15,19 +21,21 @@ public class Clubs
 	 */
 	public static boolean addClub(String name, String description, int[] heads)
 	{
-		ResultSet rs = Data.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'");
-		Data.next(rs);
-		if(Data.getRow(rs) != 0) return false; //clubs can't have the same name
+		Connection c = ConnectionController.connect();
+		Statement s = DAO.statement(c);
+		ResultSet rs = DAO.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'", s);
+		DAO.next(rs);
+		if(DAO.getRow(rs) != 0) return false; //clubs can't have the same name
 		
-		if(!Data.executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\')")) return false;
+		if(!DAO.executeUpdate("INSERT INTO clubs VALUES(DEFAULT, \'" + name + "\', \'" + description + "\')", s)) return false;
 		
-		rs = Data.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'");
-		Data.next(rs);
-		int id = Data.getIntFromRS(rs, 1);
+		rs = DAO.executeQuery("SELECT id FROM clubs WHERE name = \'" + name + "\'", s);
+		DAO.next(rs);
+		int id = DAO.getIntFromRS(rs, 1);
 		
 		for(int head: heads)
 		{
-			if(!Data.executeUpdate("INSERT INTO members VALUES(" + id + ", " + head + ", TRUE)")) return false;
+			if(!DAO.executeUpdate("INSERT INTO members VALUES(" + id + ", " + head + ", TRUE)", s)) return false;
 		}
 		return true;
 	}
@@ -40,7 +48,9 @@ public class Clubs
 	 */
 	public static boolean updateClubName(int id, String name)
 	{
-		return Data.executeUpdate("UPDATE clubs SET name = \'" + name + "\' WHERE id = " + id);
+		Connection c = ConnectionController.connect();
+		Statement s = DAO.statement(c);
+		return DAO.executeUpdate("UPDATE clubs SET name = \'" + name + "\' WHERE id = " + id, s);
 	}
 	
 	/**
@@ -51,7 +61,9 @@ public class Clubs
 	 */
 	public static boolean updateClubDescription(int id, String description)
 	{
-		return Data.executeUpdate("UPDATE clubs SET description = \'" + description + "\' WHERE id = " + id);
+		Connection c = ConnectionController.connect();
+		Statement s = DAO.statement(c);
+		return DAO.executeUpdate("UPDATE clubs SET description = \'" + description + "\' WHERE id = " + id, s);
 	}
 	
 	/**
@@ -63,12 +75,14 @@ public class Clubs
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static ArrayList<Integer>[] getClubs(int userID)
 	{
+		Connection c = ConnectionController.connect();
+		Statement s = DAO.statement(c);
 		ArrayList[] temp = new ArrayList[3];
 		ArrayList<Integer>[] result = (ArrayList<Integer>[])temp;
 		
-		ResultSet clubs = Data.executeQuery("SELECT club FROM members WHERE \"user\" = " + userID + " AND is_head = FALSE");
+		ResultSet clubs = DAO.executeQuery("SELECT club FROM members WHERE \"user\" = " + userID + " AND is_head = FALSE", s);
 		result[1] = convertToArray(clubs);
-		clubs = Data.executeQuery("SELECT club FROM members WHERE \"user\" = " + userID + " AND is_head = TRUE");
+		clubs = DAO.executeQuery("SELECT club FROM members WHERE \"user\" = " + userID + " AND is_head = TRUE", s);
 		result[2] = convertToArray(clubs);
 		
 		String str = "";
@@ -81,7 +95,7 @@ public class Clubs
 		}
 		if(str.length() != 0) str = str.substring(0, str.length() - 2);
 		
-		clubs = Data.executeQuery("SELECT id FROM clubs WHERE NOT id in (" + str + ")");
+		clubs = DAO.executeQuery("SELECT id FROM clubs WHERE NOT id in (" + str + ")", s);
 		result[0] = convertToArray(clubs);
 		
 		return result;
@@ -90,9 +104,9 @@ public class Clubs
 	private static ArrayList<Integer> convertToArray(ResultSet data)
 	{
 		ArrayList<Integer> result = new ArrayList<Integer>();
-		for(; Data.next(data); Data.afterLast(data))
+		for(; DAO.next(data); DAO.afterLast(data))
 		{
-			result.add(Data.getIntFromRS(data, 1));
+			result.add(DAO.getIntFromRS(data, 1));
 		}
 		return result;
 	}
@@ -105,7 +119,9 @@ public class Clubs
 	 */
 	public static boolean addMember(int clubID, int userID)
 	{
-		return Data.executeUpdate("INSERT INTO members VALUES(" + clubID + ", " + userID + ", FALSE)");
+		Connection c = ConnectionController.connect();
+		Statement s = DAO.statement(c);
+		return DAO.executeUpdate("INSERT INTO members VALUES(" + clubID + ", " + userID + ", FALSE)", s);
 	}
 	
 	/**
@@ -116,7 +132,9 @@ public class Clubs
 	 */
 	public static boolean removeMember(int clubID, int userID)
 	{
-		return Data.executeQuery("DELETE FROM members WHERE club = " + clubID + " AND user = " + userID) != null;
+		Connection c = ConnectionController.connect();
+		Statement s = DAO.statement(c);
+		return DAO.executeQuery("DELETE FROM members WHERE club = " + clubID + " AND user = " + userID, s) != null;
 	}
 	
 	/**
@@ -127,6 +145,8 @@ public class Clubs
 	 */
 	public static boolean addHead(int clubID, int userID)
 	{
-		return Data.executeUpdate("INSERT INTO members VALUES(" + clubID + ", " + userID + ", TRUE)");
+		Connection c = ConnectionController.connect();
+		Statement s = DAO.statement(c);
+		return DAO.executeUpdate("INSERT INTO members VALUES(" + clubID + ", " + userID + ", TRUE)", s);
 	}
 }
