@@ -12,13 +12,15 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 <script defer src="WebContent/resources/js/fontawesome-all.js"></script>
 
+
+
 	<title>MX Club Website</title>
 
 	<style>
 
 
 	body{
-		background-color: #AC3007;
+		background-color: #8B0000;
 	}	
 	r
 	.webC{
@@ -174,11 +176,13 @@ a:visited{
 
 </style>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="WebContent/resources/js/wow.min.js"></script>
  			<script>
               new WOW().init();
               </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
               
               
 <script>
@@ -206,6 +210,14 @@ function changeImg(){
 }
 
 window.onload=changeImg;
+
+$(document).ready(function(){
+ $(".extra1").click(function(){
+ 	$(this).flip();
+	 });
+ });
+ 
+
 
 </script>
 </head>
@@ -268,12 +280,12 @@ window.onload=changeImg;
 		<i class="fas fa-chevron-circle-down fa-5x" id="arrow-down"></i>
 		</a>
 
-	</div><a name="Second-Page"></a> <!--second page-->
+	<div><a name="Second-Page"></a> <!--second page-->
 			
 		<div class="LibraryPage">
-			<table class="LIT wow bounceInDown">
+			<table class="LIT wow bounceInRight">
 				<tr class="row" id="1stRow">
-					<td class="rowItems">Programing</td>
+					<td class="rowItems ">Programing</td>
 					<td class="rowItems">DV</td>
 					<td class="rowItems">GSA</td>
 					<td class="rowItems">Focus</td>
@@ -302,7 +314,7 @@ window.onload=changeImg;
 			</table>
 		</div>
 
-	<div>
+	</div><a name="Third-page"></a><!--third page-->
 		
 
 	</div>
