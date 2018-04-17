@@ -7,6 +7,16 @@
 	<link rel="stylesheet" type="text/css" href="w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<link rel="stylesheet" type="text/css" href="hover copy.css">
+	<link rel="stylesheet" type="text/css" href="animate copy.css">
+
+<script src="anijs copy.js"></script>
+	
+<script src="wow.min copy.js"></script>
+ 			<script>
+              new WOW().init();
+              </script>
+
 	<style type="text/css">
 	body, html {
     	height: 100%;
@@ -14,12 +24,14 @@
     	line-height: 1.8;
 	}
 
+
 .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 
 .bgimg-1 {
     background-image: url('Steven-Grankt-032.jpg');
@@ -60,6 +72,10 @@
 
 }
 
+.js-tilt{
+	transform-style: preserve-3d;
+}
+
 .anoucements{
 	border: 2px solid black;
 	width: 100%;
@@ -79,7 +95,10 @@
 	height: 448px;
 	margin-top: 96px;
 }
-
+.lItem{
+	text-align: center;
+	background-color: #c36f66;
+}
 table{
 	width: 100%;
 	height: 250px;
@@ -89,25 +108,14 @@ tr{
 	
 }
 td{
-	border: 1px dashed black; 
+	/* table data */
 }
 </style>
 
-<script type="text/javascript">
-
-	function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
-</script>
 
 </head>
 <body>
+
 
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar" style="background-color:#c36f66;">
@@ -133,7 +141,7 @@ td{
 
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity hvr-grow-float">
      <span class="w3-hide-small">MIDDLESEX</span> <span class="w3-hide-large w3-hide-medium">MX</span> CLUBS</span>
   </div>
 </div>
@@ -148,10 +156,10 @@ td{
      
       <p><b><i class="fa fa-user w3-margin-right"></i>CLUBS</b></p><br>
       	
-		<div class="myClubsTable" style="flex-direction:column;">
-				<div class="tableItem"><h3>POTTERY</h3></div>
-				<div class="tableItem"><h3>COMP SCI</h3></div>
-				<div class="tableItem"><h3>IMPROV</h3></div>
+		<div class="myClubsTable wow flipInX" style="flex-direction:column;">
+				<div class="tableItem js-tilt" data-tilt ><h3 style="transform: translateZ(20px);">POTTERY</h3></div>
+				<div class="tableItem js-tilt" data-tilt><h3 style="transform: translateZ(20px);">COMP SCI</h3></div>
+				<div class="tableItem js-tilt" data-tilt><h3 style="transform: translateZ(20px);">IMPROV</h3></div>
 		</div>
 
     </div>
@@ -181,16 +189,16 @@ td{
   <div class="w3-row-padding w3-center">
     <div class="" style="border: 1px solid black; width: 100%;">
  		
-		<table>
+		<table class="wow flipInX">
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">FOCUS</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">COOKING</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">DEBATE</h3></td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">CHESS</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">MATH</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">FISHING</h3></td>
 			</tr>
 		</table>
 
@@ -207,5 +215,31 @@ td{
   <a href="#home" class="w3-button w3-light-grey "><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+</script>
+
+<script src="tilt.jquery.js"></script>
+<script>
+	$('.js-tilt').tilt({
+    scale: 1.2
+}); 
+
+$('.js-tilt').tilt({
+    glare: true,
+    maxGlare: .5
+})
+
+</script>
 </body>
 </html>
