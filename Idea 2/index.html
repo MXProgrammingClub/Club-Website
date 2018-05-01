@@ -40,7 +40,7 @@
 
 .bgimg-2 {
     background-image: url("img_7572_7215627206_o.jpg");  /*img_7572_7215627206_o.jpg */
-    min-height: 200px;
+    height: 200px;
 }
 
 .logo{
@@ -98,8 +98,9 @@
 .lItem{
 	text-align: center;
 	background-color: #c36f66;
+	width: 33.33%;
 }
-table{
+.table{
 	width: 100%;
 	height: 250px;
 	border: 1px solid red;
@@ -152,7 +153,7 @@ td{
   </div>
 
   <div class="w3-row">
-    <div class="w3-col s3 w3-center w3-padding-large">
+    <div class="w3-col s3 w3-center w3-padding-large w3-hide-small">
      
       <p><b><i class="fa fa-user w3-margin-right"></i>CLUBS</b></p><br>
       	
@@ -180,18 +181,18 @@ td{
 
 
 <div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-center w3-padding-large w3-black w3-xxxlarge w3-wide w3-animate-opacity" style="width: ">LIBRARY</span>
+  <div class="w3-display-middle libC">
+    <span class="w3-center w3-padding-large w3-black w3-xxxlarge w3-wide w3-animate-opacity lib" style="width: ">LIBRARY</span>
   </div>
 </div>
 
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <div class="w3-row-padding w3-center">
-    <div class="" style="border: 1px solid black; width: 100%;">
+<div class="w3-content w3-container w3-padding-64 portfolio" id="portfolio" >
+  <div class="w3-row-padding w3-center Port-div">
+    <div class="tableContainer" style="border: 1px solid black; width: 100%;">
  		
-		<table class="wow flipInX">
+		<table class="table wow flipInX">
 			<tr>
-				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">FOCUS</h3></td>
+				<td data-tilt class="js-tilt lItem" > <a href="library.html"><h3 style="transform: translateZ(20px);">FOCUS</h3></a></td>
 				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">COOKING</h3></td>
 				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">DEBATE</h3></td>
 			</tr>
@@ -200,19 +201,36 @@ td{
 				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">MATH</h3></td>
 				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">FISHING</h3></td>
 			</tr>
+			<tr class="LoadRow">
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">VEGE</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">COM-SEN</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">GSA</h3></td>
+			</tr>
+			</tr>
+			<tr class="LoadRow">
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">DV</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">MOD-CON</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">CIRCLE</h3></td>
+			</tr>
+			<tr class="LoadRow">
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">POT</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">BLAH</h3></td>
+				<td data-tilt class="js-tilt lItem"><h3 style="transform: translateZ(20px);">BLAH</h3></td>
+				
+			</tr>
 		</table>
 
   </div>
 
   <div class="w3-row-padding w3-center w3-section">
-    <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
+    <button class="w3-button w3-padding-large w3-light-grey loadB" id="loadB" style="margin-top:64px" onclick="loadMore();">LOAD MORE</button>
   </div>
 </div>
 
 </div>
 
 <footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off" style="background-color:#c36f66 ">
-  <a href="#home" class="w3-button w3-light-grey "><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -239,6 +257,68 @@ $('.js-tilt').tilt({
     glare: true,
     maxGlare: .5
 })
+
+window.onload = function(){
+	$(".LoadRow").hide();
+
+}
+
+function loadMore(){
+
+	// document.getElementById("loadB").style.fontSize = "small";
+	$(".loadB").hide();
+	$("#home").hide();
+	$("#about").hide();
+
+	$(".TTT").hide();
+
+	$(".bgimg-2").animate( {
+		height: '100px'
+	});
+
+	$(".LoadRow").show();
+
+	$(".lib").removeClass("w3-xxxlarge");
+	$(".lib").removeClass("w3-padding-large");
+	$(".lib").removeClass("w3-wide");
+	$(".lib").addClass("w3-xxlarge");
+
+	$(".tableContainer").animate( {
+		height: '500px'
+	});
+	$(".table").animate( {
+		height: '500px'
+	});
+
+
+	$(".lib").animate( {
+		letterSpacing: '10px'
+	});
+
+	$(".libC").animate( {
+		marginTop: '18px'
+	});
+
+	$(".portfolio").animate( {
+		height: '645px'
+	});
+
+	$(".Port-div").animate( {
+		height: '581px'
+	});
+	$(".tableContainer").animate( {
+		height: '581px'
+	});
+	$(".table").animate( {
+		height: '581px'
+	});
+
+	$(".portfolio").removeClass("w3-padding-64");
+	$(".portfolio").addClass("w3-padding-32");
+
+
+}
+
 
 </script>
 </body>
