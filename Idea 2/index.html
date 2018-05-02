@@ -4,15 +4,18 @@
 	<title>Middlesex Clubs</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="w3.css">
+	<link rel="stylesheet" type="text/css" href="css/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="hover copy.css">
-	<link rel="stylesheet" type="text/css" href="animate copy.css">
+	<link rel="stylesheet" type="text/css" href="css/hover copy.css">
+	<link rel="stylesheet" type="text/css" href="css/animate copy.css">
 
-<script src="anijs copy.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
+	<script type="text/javascript" src="lightbox-plus-jquery.min.js"></script>
+
+<script src="js/anijs copy.js"></script>
 	
-<script src="wow.min copy.js"></script>
+<script src="js/wow.min copy.js"></script>
  			<script>
               new WOW().init();
               </script>
@@ -24,6 +27,8 @@
     	line-height: 1.8;
 	}
 
+/*.w3-button:hover{color:#000!important;background-color:#ccc!important};*/
+
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
@@ -34,12 +39,12 @@
 
 
 .bgimg-1 {
-    background-image: url('Steven-Grankt-032.jpg');
+    background-image: url('img/EliotAtNight.jpg');
     min-height: 100%;
 }
 
 .bgimg-2 {
-    background-image: url("img_7572_7215627206_o.jpg");  /*img_7572_7215627206_o.jpg */
+    background-image: url("img/chapelAtNight.jpg");  /*img_7572_7215627206_o.jpg */
     height: 200px;
 }
 
@@ -52,7 +57,7 @@
 #homeDiv{
 	width: 100%;
 	height: 150px; 
-	background-image: url('Steven-Grankt-032.jpg');
+	background-image: url('img/EliotAtNight.jpg');
 	 background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -68,7 +73,8 @@
 	width: 100%;
 	height: 33.33333%;
 	text-align: center;
-	background-color: #c36f66; /* #CF003D mx colors*/
+	background-color: black; /* #CF003D mx colors*/
+	color: white;
 
 }
 
@@ -97,13 +103,14 @@
 }
 .lItem{
 	text-align: center;
-	background-color: #c36f66;
+	background-color: black; /*c36f66*/ 
 	width: 33.33%;
+	color: white;
+
 }
 .table{
 	width: 100%;
 	height: 250px;
-	border: 1px solid red;
 }
 tr{
 	
@@ -119,16 +126,16 @@ td{
 
 
 <div class="w3-top">
-  <div class="w3-bar" id="myNavbar" style="background-color:#c36f66;">
+  <div class="w3-bar" id="myNavbar" style="background-color:black;">
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="#home" href="index.html" class="w3-bar-item w3-button" >HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> MY CLUBS</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> LIBRARY</a>
+    <a href="#home" class="w3-bar-item w3-button" id="homeNav" style="color:white;" >HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small" style="color:white;"><i class="fa fa-user"></i> MY CLUBS</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small" style="color:white;"><i class="fa fa-th"></i> LIBRARY</a>
   
-      <a href="#home" class="w3-bar-item w3-button " style="float: right;">SIGN UP</a>
-      <a href="#home" class="w3-bar-item w3-button" style="float: right;">LOG IN</a>
+      <a href="#home" class="w3-bar-item w3-button " style="float: right;  color: white;">SIGN UP</a>
+      <a href="#home" class="w3-bar-item w3-button" style="float: right; color:white;">LOG IN</a>
   </div>
 
   <!-- Navbar on small screens -->
@@ -140,7 +147,7 @@ td{
   </div>
 </div>
 
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+<div class="bgimg-1 w3-display-container " id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity hvr-grow-float">
      <span class="w3-hide-small">MIDDLESEX</span> <span class="w3-hide-large w3-hide-medium">MX</span> CLUBS</span>
@@ -159,7 +166,7 @@ td{
       	
 		<div class="myClubsTable wow flipInX" style="flex-direction:column;">
 				<div class="tableItem js-tilt" data-tilt ><h3 style="transform: translateZ(20px);">POTTERY</h3></div>
-				<div class="tableItem js-tilt" data-tilt><h3 style="transform: translateZ(20px);">COMP SCI</h3></div>
+				<div class="tableItem js-tilt" data-tilt><a href="library.html"><h3 style="transform: translateZ(20px);">COMP SCI</h3></a></div>
 				<div class="tableItem js-tilt" data-tilt><h3 style="transform: translateZ(20px);">IMPROV</h3></div>
 		</div>
 
@@ -180,7 +187,7 @@ td{
 
 
 
-<div class="bgimg-2 w3-display-container w3-opacity-min">
+<div class="bgimg-2 w3-display-container">
   <div class="w3-display-middle libC">
     <span class="w3-center w3-padding-large w3-black w3-xxxlarge w3-wide w3-animate-opacity lib" style="width: ">LIBRARY</span>
   </div>
@@ -188,7 +195,7 @@ td{
 
 <div class="w3-content w3-container w3-padding-64 portfolio" id="portfolio" >
   <div class="w3-row-padding w3-center Port-div">
-    <div class="tableContainer" style="border: 1px solid black; width: 100%;">
+    <div class="tableContainer" style="width: 100%;">
  		
 		<table class="table wow flipInX">
 			<tr>
@@ -229,7 +236,7 @@ td{
 
 </div>
 
-<footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off" style="background-color:#c36f66 ">
+<footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off" style="background-color:black ">
   <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
 </footer>
 
@@ -247,7 +254,7 @@ td{
 
 </script>
 
-<script src="tilt.jquery.js"></script>
+<script src="js/tilt.jquery.js"></script>
 <script>
 	$('.js-tilt').tilt({
     scale: 1.2
@@ -262,6 +269,12 @@ window.onload = function(){
 	$(".LoadRow").hide();
 
 }
+
+/*$(document).ready(function(){
+    $("#loadB").click(function(){
+       location.href = $(this).data("index.html");
+    });
+});*/
 
 function loadMore(){
 
@@ -315,6 +328,10 @@ function loadMore(){
 
 	$(".portfolio").removeClass("w3-padding-64");
 	$(".portfolio").addClass("w3-padding-32");
+
+
+	$("#homeNav").attr("href", "index.html");
+
 
 
 }
