@@ -4,122 +4,22 @@
 	<title>Middlesex Clubs</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/w3.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="css/hover copy.css">
-	<link rel="stylesheet" type="text/css" href="css/animate copy.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/hover copy.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/animate copy.css">
 
-	<link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
-	<script type="text/javascript" src="lightbox-plus-jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="resources/css/lightbox.min.css">
+	<script type="text/javascript" src="resources/js/lightbox-plus-jquery.min.js"></script>
 
-<script src="js/anijs copy.js"></script>
+<script src="resources/js/anijs copy.js"></script>
 	
-<script src="js/wow.min copy.js"></script>
+<script src="resources/js/wow.min copy.js"></script>
  			<script>
               new WOW().init();
               </script>
-
-	<style type="text/css">
-	body, html {
-    	height: 100%;
-    	color: #333;
-    	line-height: 1.8;
-	}
-
-/*.w3-button:hover{color:#000!important;background-color:#ccc!important};*/
-
-
-.bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-.bgimg-1 {
-    background-image: url('img/EliotAtNight.jpg');
-    min-height: 100%;
-}
-
-.bgimg-2 {
-    background-image: url("img/chapelAtNight.jpg");  /*img_7572_7215627206_o.jpg */
-    height: 200px;
-}
-
-.logo{
-	width:50px;
-	height:48px; 
-	margin: auto;
-}
-
-#homeDiv{
-	width: 100%;
-	height: 150px; 
-	background-image: url('img/EliotAtNight.jpg');
-	 background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    border: 1px solid transparent;
-}
-.myClubsTable{
-	width: 100%;
-	height: 450px;
-}
-.tableItem{
-	border: 2px solid black;
-	width: 100%;
-	height: 33.33333%;
-	text-align: center;
-	background-color: black; /* #CF003D mx colors*/
-	color: white;
-
-}
-
-.js-tilt{
-	transform-style: preserve-3d;
-}
-
-.anoucements{
-	border: 2px solid black;
-	width: 100%;
-	height: 200px;
-	position: relative;
-}
-.events{
-	border: 2px solid black;
-	width: 100%;
-	height: 200px;
-	position: relative;
-	margin-top: 48px
-
-}
-.A-E{
-	width: 75%;
-	height: 448px;
-	margin-top: 96px;
-}
-.lItem{
-	text-align: center;
-	background-color: black; /*c36f66*/ 
-	width: 33.33%;
-	color: white;
-
-}
-.table{
-	width: 100%;
-	height: 250px;
-}
-tr{
-	
-}
-td{
-	/* table data */
-}
-</style>
-
+<link rel="stylesheet" type="text/css" href="main.css">
 
 </head>
 <body>
@@ -130,9 +30,9 @@ td{
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="#home" class="w3-bar-item w3-button" id="homeNav" style="color:white;" >HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small" style="color:white;"><i class="fa fa-user"></i> MY CLUBS</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small" style="color:white;"><i class="fa fa-th"></i> LIBRARY</a>
+    <a href="index.html#home" class="w3-bar-item w3-button" id="homeNav" style="color:white;"> HOME</a>
+    <a href="index.html#about" class="w3-bar-item w3-button w3-hide-small" id="myClubsNav" style="color:white;"><i class="fa fa-user"></i> MY CLUBS</a>
+    <a href="index.html#portfolio" class="w3-bar-item w3-button w3-hide-small" id="LibraryNav" style="color:white;"><i class="fa fa-th"></i> LIBRARY</a>
   
       <a href="#home" class="w3-bar-item w3-button " style="float: right;  color: white;">SIGN UP</a>
       <a href="#home" class="w3-bar-item w3-button" style="float: right; color:white;">LOG IN</a>
@@ -150,13 +50,13 @@ td{
 <div class="bgimg-1 w3-display-container " id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity hvr-grow-float">
-     <span class="w3-hide-small">MIDDLESEX</span> <span class="w3-hide-large w3-hide-medium">MX</span> CLUBS</span>
+     <span class="w3-hide-small" style="color:#CF003D; text-decoration: none;">MIDDLESEX</span> <span class="w3-hide-large w3-hide-medium">MX</span> CLUBS</span>
   </div>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="about">
 <div id="homeDiv">
-  <h3 class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity" style="margin-top:40px;">MY CLUBS</h3>
+  <h3 class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity titleAbout" style="margin-top:40px;">MY CLUBS</h3>
   </div>
 
   <div class="w3-row">
@@ -187,7 +87,7 @@ td{
 
 
 
-<div class="bgimg-2 w3-display-container">
+<div class="bgimg-2 w3-display-container" >
   <div class="w3-display-middle libC">
     <span class="w3-center w3-padding-large w3-black w3-xxxlarge w3-wide w3-animate-opacity lib" style="width: ">LIBRARY</span>
   </div>
@@ -241,7 +141,14 @@ td{
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="resources/js/noframework.waypoints.min.js"></script>
+<script src="resources/js/jquery.waypoints.min.js"></script>
 <script type="text/javascript">
+
+	window.onload = function(){
+	$(".LoadRow").hide();
+
+}
 
 	function toggleFunction() {
     var x = document.getElementById("navDemo");
@@ -251,10 +158,54 @@ td{
         x.className = x.className.replace(" w3-show", "");
     }
 }
+var $home = $("#home");
+$home.waypoint(function () {
+	$("#homeNav").css("color", "#CF003D");
+	$("#myClubsNav").css("color", "white");
+	$("#LibraryNav").css("color", "white");
+}, {});
 
+var $about = $("#about");
+$about.waypoint(function () {
+	$("#myClubsNav").css("color", "#CF003D");
+	$("#homeNav").css("color", "white");
+	$("#LibraryNav").css("color", "white");
+}, { });
+
+
+var $Lib = $(".bgimg-2");
+$Lib.waypoint(function () {
+	$("#homeNav").css("color", "white");
+	$("#myClubsNav").css("color", "white");
+	$("#LibraryNav").css("color", "#CF003D");
+}, { offset: '50%'});
+/*
+
+var waypoint = new Waypoint({
+  element: document.getElementById('about'),
+  handler: function() {
+    $("#myClubsNav").animate({
+    	color: "red"
+    },1000);
+  }
+}) 
+/*
+$('#about').waypoint(function(direction){
+//do stuff 
+$("#myClubsNav").animate({
+    	color: "red"
+    },1000);
+
+},{
+ //bottom-in-view will ensure event is thrown when the element's bottom crosses
+ //bottom of viewport.
+ offset: 'bottom-in-view'
+});
+
+*/
 </script>
 
-<script src="js/tilt.jquery.js"></script>
+<script src="resources/js/tilt.jquery.js"></script>
 <script>
 	$('.js-tilt').tilt({
     scale: 1.2
@@ -265,10 +216,6 @@ $('.js-tilt').tilt({
     maxGlare: .5
 })
 
-window.onload = function(){
-	$(".LoadRow").hide();
-
-}
 
 /*$(document).ready(function(){
     $("#loadB").click(function(){
@@ -277,7 +224,7 @@ window.onload = function(){
 });*/
 
 function loadMore(){
-
+ var loadMoreClick = true;
 	// document.getElementById("loadB").style.fontSize = "small";
 	$(".loadB").hide();
 	$("#home").hide();
@@ -331,9 +278,19 @@ function loadMore(){
 
 
 	$("#homeNav").attr("href", "index.html");
+	$("#myClubsNav").attr("href", "index.html#about");
 
+/*$("#myClubsNav").click(){
 
+		$(".loadB").show();
+		$("#home").show();
+		$("#about").show();
 
+	} */
+}
+
+if(loadMoreClick=true){
+ 
 }
 
 
