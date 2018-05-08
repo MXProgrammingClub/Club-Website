@@ -97,3 +97,15 @@ td{
 	/* table data */
 }
 
+.submitButton{
+	background:#CF003D;border:0;color:#fff;
+}
+.submitButton:hover {
+	background-color: white; 
+	color: black;
+
+}
+.sticky{
+	position: fixed;
+	top: 0;
+}

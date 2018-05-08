@@ -41,20 +41,16 @@ END DO NOT MODIFY
 <body>
 
 
-<div class="w3-bottom" style="overflow: hidden; ">
-  <div class="w3-bar" id="myNavbar" style="background-color:black; position: sticky;">
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar" style="background-color:black;">
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
     <a href="index.html#home" class="w3-bar-item w3-button" id="homeNav" style="color:white;"> HOME</a>
-
-	<a href="index.html#home" class="w3-bar-item w3-button w3-xlarge w3-wide homeLoad" id="homeNav" style="color:white; background-color: black; left: 37%; float: none; position: absolute;     padding-top: 0; "><span style="color:#CF003D;" class="w3-hide-small">Middlesex</span> <span class="w3-hide-large w3-hide-medium">MX</span>Clubs</a>
-
     <a href="index.html#about" class="w3-bar-item w3-button w3-hide-small" id="myClubsNav" style="color:white;"><i class="fa fa-user"></i> MY CLUBS</a>
     <a href="index.html#portfolio" class="w3-bar-item w3-button w3-hide-small" id="LibraryNav" style="color:white;"><i class="fa fa-th"></i> LIBRARY</a>
   
-      <a href="https://pub7.bravenet.com/passwd/requestpwd.php?usernum=568825063" class="w3-bar-item w3-button " style="float: right;  color: white;">SIGN UP</a>
-      <a href="#" onclick="LogInClicked();" class="w3-bar-item w3-button" style="float: right; color:white;">LOG IN</a>
+      
   </div>
 
   <!-- Navbar on small screens -->
@@ -66,31 +62,6 @@ END DO NOT MODIFY
   </div>
 </div>
 
-<div class="bgimg-1 w3-display-container " id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity hvr-grow-float">
-     <span class="w3-hide-small" style="color:#CF003D; text-decoration: none;">MIDDLESEX</span> <span class="w3-hide-large w3-hide-medium">MX</span> CLUBS</span>
-  </div>
-  <!-- Start Bravenet.com Service Code -->
-<div style="text-align: left; width:300px; padding:5px; float: right;
-    margin-top: 550px;
-    border: 4px solid #CF003D ;
-    background-color: black; " class="logDiv">
-  <form action="http://pub7.bravenet.com/passwd/show.php" method="post" target="_top">
-    <input type="hidden" name="usernum" value="568825063">
-
-    <div style="padding:5px; color: white; " class="Username">Username: <input type="text" name="uname" size="15" maxlength="30" style="width: 100px;padding:5px;border-radius:5px;border:1px solid white;">
-    </div>
-
-    <div style="padding:5px; color: white;" class="Password">Password: <input type="password" name="passwd" size="15" maxlength="30" style="width: 100px;padding:5px;border-radius:5px;border:1px solid white;"></div>
-
-    <div style="padding:5px;"><a style="color:#CF003D" class="signUpButton" href="https://pub7.bravenet.com/passwd/requestpwd.php?usernum=568825063" target="_top">Request an Account</a> &nbsp; 
-    	<input type="submit" name="submit" value="Login" class="submitButton" style="border-radius:5px;padding:5px 10px;"></div>
-  </form>
-</div>
-
-<!-- End Bravenet.com Service Code -->
-</div>
 
 <div class="w3-content w3-container w3-padding-64" id="about">
 <div id="homeDiv">
@@ -188,7 +159,6 @@ END DO NOT MODIFY
 	window.onload = function(){
 	$(".LoadRow").hide();
 	$(".logDiv").hide();
-	$(".homeLoad").hide();
 
 }
 
@@ -226,23 +196,6 @@ $Lib.waypoint(function () {
 	$("#myClubsNav").css("color", "white");
 	$("#LibraryNav").css("color", "#CF003D");
 }, { offset: '50%'});
-
-
-/*
-window.onscroll = function() {navStick()};
-
-var navbar = document.getElementById("myNavbar");
-var sticky = navbar.offsetTop;
-
-function navStick() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-*/
-
 /*
 
 var waypoint = new Waypoint({
