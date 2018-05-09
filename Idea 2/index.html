@@ -41,16 +41,21 @@ END DO NOT MODIFY
 <body>
 
 
-<div class="w3-bottom" style="overflow: hidden; ">
-  <div class="w3-bar" id="myNavbar" style="background-color:black; position: sticky;">
+<div class="w3-bottom NB" style="
+	position: absolute;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+	 "
+    >
+  <div class="w3-bar" id="myNavbar" style="background-color:black;">
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="index.html#home" class="w3-bar-item w3-button" id="homeNav" style="color:white;"> HOME</a>
 
-	<a href="index.html#home" class="w3-bar-item w3-button w3-xlarge w3-wide homeLoad" id="homeNav" style="color:white; background-color: black; left: 37%; float: none; position: absolute;     padding-top: 0; "><span style="color:#CF003D;" class="w3-hide-small">Middlesex</span> <span class="w3-hide-large w3-hide-medium">MX</span>Clubs</a>
+	<a href="index.html#home" class="w3-bar-item w3-button w3-xlarge w3-wide homeLoad" style="color:white; background-color: transparent; left: 37%; float: none; position: absolute; padding-top: 0; "><span style="color:#CF003D;" class="w3-hide-small">Middlesex</span> <span class="w3-hide-large w3-hide-medium">MX</span>Clubs</a>
 
-    <a href="index.html#about" class="w3-bar-item w3-button w3-hide-small" id="myClubsNav" style="color:white;"><i class="fa fa-user"></i> MY CLUBS</a>
     <a href="index.html#portfolio" class="w3-bar-item w3-button w3-hide-small" id="LibraryNav" style="color:white;"><i class="fa fa-th"></i> LIBRARY</a>
   
       <a href="https://pub7.bravenet.com/passwd/requestpwd.php?usernum=568825063" class="w3-bar-item w3-button " style="float: right;  color: white;">SIGN UP</a>
@@ -67,8 +72,8 @@ END DO NOT MODIFY
 </div>
 
 <div class="bgimg-1 w3-display-container " id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity hvr-grow-float">
+  <div class="w3-display-middle titleHomeDiv" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity hvr-grow-float titleHome">
      <span class="w3-hide-small" style="color:#CF003D; text-decoration: none;">MIDDLESEX</span> <span class="w3-hide-large w3-hide-medium">MX</span> CLUBS</span>
   </div>
   <!-- Start Bravenet.com Service Code -->
@@ -169,9 +174,21 @@ END DO NOT MODIFY
     }
 }
 
+
+
 function LogInClicked(){
 	$(".logDiv").fadeIn();
 }
+
+var $NB = $(".NB");
+$NB.waypoint(function () {
+	$(".NB").addClass("sticky");
+}, {});
+
+$NB.waypoint(function () {
+	$(".NB").removeClass("sticky");
+}, {offset: '2%'});
+
 
 var $home = $("#home");
 $home.waypoint(function () {
@@ -195,6 +212,17 @@ $Lib.waypoint(function () {
 	$("#LibraryNav").css("color", "#CF003D");
 }, { offset: '50%'});
 
+var $titleHome = $(".titleHome");
+$titleHome.waypoint(function () {
+ 	$(".titleHome").fadeOut();
+ 	$(".homeLoad").fadeIn();
+}, { offset: '8%'});
+
+$titleHome.waypoint(function () {
+ 	$(".titleHome").fadeIn();
+ 	$(".homeLoad").fadeOut();
+ 	console.log("hehhe");
+}, { offset: '10%'});
 
 /*
 window.onscroll = function() {navStick()};
