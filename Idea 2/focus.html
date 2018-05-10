@@ -41,7 +41,9 @@
     height: 150px;
 }
 
-
+.backbutton{
+    color: chocolate;
+}
 
 
 .js-tilt{
@@ -93,14 +95,18 @@ td{
 }
 
 .imgGalItem{
-  width: 24.7%;
-  height: 100%;
+  width: 24.5%;
   filter: grayscale(100%);
   transition: 1s;
+  padding: 10px;
 }
 
 .imgGalItem:hover{
   filter: grayscale(0);
+}
+
+.galleryButton:hover{
+    cursor: pointer;
 }
 
 </style>
@@ -159,12 +165,26 @@ td{
 </div>
 </div>
 
+
+
 <div class="gallery" style="width: 100%; height: 190px;">
     <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem"></a>
     <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem"></a>
     <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem"></a>
     <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem"></a>
+
+     <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem"></a>
+    <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem"></a>
+    <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem"></a>
+    <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem"></a>
 </div>
+
+<div style="border: 2px solid black; color:#CF003D; width: 10%; height:auto; text-align: center;
+    margin-left: 43%;
+    background-color: black;
+    border-radius: 10px;
+    letter-spacing: 3px;
+    margin-top: 5%;" class="galleryButton"> GALLERY </div>
 <!--
 <footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off" style="background-color:#c36f66 ">
   <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
@@ -172,6 +192,11 @@ td{
 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+  
+ window.onload = function(){
+  $(".gallery").hide();
+}
 
 	function toggleFunction() {
     var x = document.getElementById("navDemo");
@@ -181,6 +206,33 @@ td{
         x.className = x.className.replace(" w3-show", "");
     }
 }
+$(".galleryButton").click( function(){
+
+      $(".galleryButton").html("BACK");
+      $(".anoucements").fadeOut();
+      $(".events").fadeOut();
+      $(".gallery").fadeIn("slow");
+      $(".galleryButton").animate({
+          marginTop: '30%'
+      });
+      // (".galleryButton").removeClass("w3-wide");
+      $(this).addClass("backButton");
+
+});
+
+$(".backButton").click( function(){
+    $(this).html("GALLERY");
+     $(".galleryButton").removeClass("galleryButton");
+    $(".gallery").hide();
+      $(".anoucements").fadeIn("slow");
+      $(".events").fadeIn("slow");
+      $(".galleryButton").animate({
+          marginTop: '5%'
+      });
+      $(".galleryButton").removeClass("galleryButton");
+      $(".galleryButton").removeClass("backButton");
+
+});
 
 </script>
 
