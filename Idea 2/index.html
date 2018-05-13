@@ -56,7 +56,11 @@ END DO NOT MODIFY
 
 	<a href="index.html#home" class="w3-bar-item w3-button w3-xlarge w3-wide homeLoad" style="color:white; background-color: transparent; left: 37%; float: none; position: absolute; padding-top: 0; "><span style="color:#CF003D;" class="w3-hide-small">Middlesex</span> <span class="w3-hide-large w3-hide-medium">MX</span>Clubs</a>
 
+	<a href="index.html" class="w3-bar-item w3-button homeNav" style="color: white;" >HOME</a>
+
     <a href="index.html#portfolio" class="w3-bar-item w3-button w3-hide-small" id="LibraryNav" style="color:white;"><i class="fa fa-th"></i> LIBRARY</a>
+
+
   
       <a href="https://pub7.bravenet.com/passwd/requestpwd.php?usernum=568825063" class="w3-bar-item w3-button " style="float: right;  color: white;">SIGN UP</a>
       <a href="#" onclick="LogInClicked();" class="w3-bar-item w3-button" style="float: right; color:white;">LOG IN</a>
@@ -149,8 +153,15 @@ END DO NOT MODIFY
 
 </div>
 
-<footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off" style="background-color:black ">
-  <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+
+<footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off w3-hide-small" style="background-color:black; height: 95px;">
+  <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right" style="padding: 4px 8px;"></i>To the top</a>
+    <div class="w3-xlarge">
+   <a href="https://www.facebook.com/MXSchool1901/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://www.instagram.com/middlesexschool/"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://twitter.com/middlesexschool?lang=en"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.youtube.com/TheMiddlesexSchool"><i class="fa fa-youtube w3-hover-opacity"></i></a>
+  </div>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -162,6 +173,7 @@ END DO NOT MODIFY
 	$(".LoadRow").hide();
 	$(".logDiv").hide();
 	$(".homeLoad").hide();
+	$(".homeNav").hide();
 
 }
 
@@ -337,7 +349,7 @@ function loadMore(){
 	$(".portfolio").addClass("w3-padding-32");
 
 
-	$("#homeNav").attr("href", "index.html");
+	$(".homeNav").show();
 	$("#myClubsNav").attr("href", "index.html#about");
 
 /*$("#myClubsNav").click(){

@@ -41,8 +41,8 @@
     height: 150px;
 }
 
-.backbutton{
-    color: chocolate;
+.backButton:hover{
+    
 }
 
 
@@ -109,6 +109,25 @@ td{
     cursor: pointer;
 }
 
+.backButton:hover{
+    cursor: pointer;
+}
+/*w3-small screens*/
+@media (max-width:600px){.w3-modal-content{margin:0 10px;width:auto!important}.w3-modal{padding-top:30px}
+.w3-dropdown-hover.w3-mobile .w3-dropdown-content,.w3-dropdown-click.w3-mobile .w3-dropdown-content{position:relative}  
+.w3-hide-small{display:none!important}
+
+.w3-mobile{display:block;width:100%!important}
+
+.w3-mobileButton{display:block; margin-top:2750px !important}
+.w3-textMobile{font-size: 10px;width: 20% !important; }
+
+.w3-bar-item.w3-mobile,.w3-dropdown-hover.w3-mobile,.w3-dropdown-click.w3-mobile{text-align:center}
+.w3-dropdown-hover.w3-mobile,.w3-dropdown-hover.w3-mobile .w3-btn,.w3-dropdown-hover.w3-mobile .w3-button,.w3-dropdown-click.w3-mobile,.w3-dropdown-click.w3-mobile .w3-btn,.w3-dropdown-click.w3-mobile .w3-button{width:100%}}
+
+@media(max-width:895px){
+  .w3-textMobile{font-size: 10px;width: 20% !important; }
+}
 </style>
 
 
@@ -168,15 +187,15 @@ td{
 
 
 <div class="gallery" style="width: 100%; height: 190px;">
-    <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem"></a>
-    <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem"></a>
-    <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem"></a>
-    <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem"></a>
+    <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem w3-mobile"></a>
 
-     <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem"></a>
-    <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem"></a>
-    <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem"></a>
-    <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem"></a>
+     <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem w3-mobile"></a>
 </div>
 
 <div style="border: 2px solid black; color:#CF003D; width: 10%; height:auto; text-align: center;
@@ -184,18 +203,33 @@ td{
     background-color: black;
     border-radius: 10px;
     letter-spacing: 3px;
-    margin-top: 5%;" class="galleryButton"> GALLERY </div>
-<!--
-<footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off" style="background-color:#c36f66 ">
-  <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+   " class="galleryButton w3-textMobile"> GALLERY </div>
+
+    <div style="border: 2px solid black; color:#CF003D; width: 10%; height:auto; text-align: center;
+    margin-left: 43%;
+    background-color: black;
+    border-radius: 10px;
+    letter-spacing: 3px;
+    margin-top: 30%;" class="backButton w3-mobileButton"> BACK </div>
+
+<footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off" style="background-color:black; height: 99px; margin-top: 49px;">
+  <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right" style="padding: 4px 8px;"></i>To the top</a>
+    <div class="w3-xlarge">
+   <a href="https://www.facebook.com/MXSchool1901/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://www.instagram.com/middlesexschool/"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://twitter.com/middlesexschool?lang=en"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.youtube.com/TheMiddlesexSchool"><i class="fa fa-youtube w3-hover-opacity"></i></a>
+  </div>
 </footer>
--->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 
   
  window.onload = function(){
   $(".gallery").hide();
+    $(".backButton").hide();
+
 }
 
 	function toggleFunction() {
@@ -208,31 +242,31 @@ td{
 }
 $(".galleryButton").click( function(){
 
-      $(".galleryButton").html("BACK");
       $(".anoucements").fadeOut();
       $(".events").fadeOut();
       $(".gallery").fadeIn("slow");
-      $(".galleryButton").animate({
-          marginTop: '30%'
+     $(".galleryButton").animate({
+          marginTop: '5%'
       });
-      // (".galleryButton").removeClass("w3-wide");
-      $(this).addClass("backButton");
+    $(".backButton").show();
+      $(".galleryButton").hide();
 
 });
 
 $(".backButton").click( function(){
-    $(this).html("GALLERY");
-     $(".galleryButton").removeClass("galleryButton");
     $(".gallery").hide();
       $(".anoucements").fadeIn("slow");
       $(".events").fadeIn("slow");
-      $(".galleryButton").animate({
-          marginTop: '5%'
-      });
-      $(".galleryButton").removeClass("galleryButton");
-      $(".galleryButton").removeClass("backButton");
+      /*$(".galleryButton").animate({
+          marginTop: '30%'
+      });*/
+     $(".galleryButton").show();
+    $(".backButton").hide();
+
 
 });
+
+
 
 </script>
 

@@ -103,6 +103,10 @@ td{
 .submitButton:hover {
 	background-color: white; 
 	color: black;
+}
+.backButton:hover {
+	background-color: white; 
+	color: black;
 
 }
 .sticky {
