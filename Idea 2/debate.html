@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> FOCUS</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="resources/css/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="resources/css/hover copy.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/animate copy.css">
+
+  <link rel="stylesheet" type="text/css" href="resources/css/lightbox.min.css">
+  <script type="text/javascript" src="resources/js/lightbox-plus-jquery.min.js"></script>
+
+<script src="resources/js/anijs copy.js"></script>
+	
+<script src="resources/js/wow.min copy.js"></script>
+ 			<script>
+              new WOW().init();
+              </script>
+
+	<style type="text/css">
+	body, html {
+    	height: 100%;
+    	color: #333;
+    	line-height: 1.8;
+	}
+
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.bgimg-2 {
+    background-image: url("img/EliotAtNight.jpg");  /*img_7572_7215627206_o.jpg */
+    height: 150px;
+}
+
+.backButton:hover{
+    
+}
+
+
+.js-tilt{
+	transform-style: preserve-3d;
+}
+
+.anoucements{
+	border: 2px solid black;
+	width: 100%;
+	height: 200px;
+	position: relative;
+}
+.events{
+	border: 2px solid black;
+	width: 100%;
+	height: 200px;
+	position: relative;
+	margin-top: 10px;
+
+}
+.A-E{
+	width: 75%;
+	height: 448px;
+	margin-top: 96px;
+}
+.lItem{
+	text-align: center;
+	background-color: #c36f66;
+	width: 33.33%;
+}
+.table{
+	width: 100%;
+	height: 250px;
+	border: 1px solid red;
+}
+tr{
+	
+}
+td{
+	/* table data */
+}
+
+.gallery {
+	width: 100%;
+	height: 195px;
+	margin: 0px;
+	padding: 0px;
+  position: relative;
+}
+
+.imgGalItem{
+  width: 24.5%;
+  filter: grayscale(100%);
+  transition: 1s;
+  padding: 10px;
+}
+
+.imgGalItem:hover{
+  filter: grayscale(0);
+}
+
+.galleryButton:hover{
+    cursor: pointer;
+}
+
+.backButton:hover{
+    cursor: pointer;
+}
+/*w3-small screens*/
+@media (max-width:600px){.w3-modal-content{margin:0 10px;width:auto!important}.w3-modal{padding-top:30px}
+.w3-dropdown-hover.w3-mobile .w3-dropdown-content,.w3-dropdown-click.w3-mobile .w3-dropdown-content{position:relative}  
+.w3-hide-small{display:none!important}
+
+.w3-mobile{display:block;width:100%!important}
+
+.w3-mobileButton{display:block; margin-top:2750px !important}
+.w3-textMobile{font-size: 10px;width: 20% !important; }
+
+.w3-bar-item.w3-mobile,.w3-dropdown-hover.w3-mobile,.w3-dropdown-click.w3-mobile{text-align:center}
+.w3-dropdown-hover.w3-mobile,.w3-dropdown-hover.w3-mobile .w3-btn,.w3-dropdown-hover.w3-mobile .w3-button,.w3-dropdown-click.w3-mobile,.w3-dropdown-click.w3-mobile .w3-btn,.w3-dropdown-click.w3-mobile .w3-button{width:100%}}
+
+@media(max-width:895px){
+  .w3-textMobile{font-size: 10px;width: 20% !important; }
+}
+</style>
+
+
+</head>
+<body>
+
+
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar" style="background-color:black; color: white;">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="index.html" class="w3-bar-item w3-button" style="color: white;" >HOME</a>
+    <a href="index.html#about" class="w3-bar-item w3-button w3-hide-small" style="color: white;"><i class="fa fa-user"></i> MY CLUBS</a>
+    <a href="index.html#portfolio" class="w3-bar-item w3-button w3-hide-small" style="color: white;"><i class="fa fa-th"></i> LIBRARY</a>
+  
+      <a href="#home" class="w3-bar-item w3-button " style="float: right; color: white;">SIGN UP</a>
+      <a href="#home" class="w3-bar-item w3-button" style="float: right; color: white;">LOG IN</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()" style="color: white; background-color: black;" >ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()" style="color: white; background-color: black;" >MY CLUBS</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()" style="color: white; background-color: black;" >LIBRARY</a>
+    
+  </div>
+</div>
+
+
+
+
+
+
+<div class="bgimg-2 w3-display-container ">
+  <div class="w3-display-middle libC"  style="margin-top: 20px;">
+    <span class="w3-center w3-padding-large w3-black w3-xxxlarge w3-wide w3-animate-opacity lib">FOCUS</span>
+  </div>
+</div>
+
+<div class="w3-content w3-container w3-padding-32 portfolio" id="portfolio" >
+
+  <div class="w3-row-padding w3-center Port-div">
+
+    <div class="anoucements">
+    	<span><h5><u>Announcements</u></h5></span>
+    </div>
+
+	<div class="events">
+		<span><h5><u>Events</u></h5></span>
+	</div>
+
+  
+</div>
+</div>
+
+
+
+<div class="gallery" style="width: 100%; height: 190px;">
+    <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem w3-mobile"></a>
+
+     <a href="img/fall.jpg" data-lightbox="mygallery"><img src="img/fall.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/moveON.jpg" data-lightbox="mygallery"><img src="img/moveON.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/play.jpg" data-lightbox="mygallery"><img src="img/play.jpg" class="imgGalItem w3-mobile"></a>
+    <a href="img/insideChapel.jpg" data-lightbox="mygallery"><img src="img/insideChapel.jpg" class="imgGalItem w3-mobile"></a>
+</div>
+
+<div style="border: 2px solid black; color:#CF003D; width: 10%; height:auto; text-align: center;
+    margin-left: 43%;
+    background-color: black;
+    border-radius: 10px;
+    letter-spacing: 3px;
+   " class="galleryButton w3-textMobile"> GALLERY </div>
+
+    <div style="border: 2px solid black; color:#CF003D; width: 10%; height:auto; text-align: center;
+    margin-left: 43%;
+    background-color: black;
+    border-radius: 10px;
+    letter-spacing: 3px;
+    margin-top: 24%;" class="backButton w3-mobileButton"> BACK </div>
+
+<footer class="w3-center w3-padding w3-opacity w3-hover-opacity-off w3-hide-small" style="background-color:black; height: 99px; margin-top: 49px;">
+  <a href="#home" class="w3-button w3-light-grey TTT"><i class="fa fa-arrow-up w3-margin-right" style="padding: 4px 8px;"></i>To the top</a>
+    <div class="w3-xlarge">
+   <a href="https://www.facebook.com/MXSchool1901/"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https://www.instagram.com/middlesexschool/"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://twitter.com/middlesexschool?lang=en"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.youtube.com/TheMiddlesexSchool"><i class="fa fa-youtube w3-hover-opacity"></i></a>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  
+ window.onload = function(){
+  $(".gallery").hide();
+    $(".backButton").hide();
+
+}
+
+	function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+$(".galleryButton").click( function(){
+
+      $(".anoucements").fadeOut();
+      $(".events").fadeOut();
+      $(".gallery").fadeIn("slow");
+     $(".galleryButton").animate({
+          marginTop: '0%'
+      });
+    $(".backButton").show();
+      $(".galleryButton").hide();
+
+});
+
+$(".backButton").click( function(){
+    $(".gallery").hide();
+      $(".anoucements").fadeIn("slow");
+      $(".events").fadeIn("slow");
+      /*$(".galleryButton").animate({
+          marginTop: '30%'
+      });*/
+     $(".galleryButton").show();
+    $(".backButton").hide();
+
+
+});
+
+
+
+</script>
+
+<script src="resources/js/tilt.jquery.js"></script>
+<script>
+	$('.js-tilt').tilt({
+    scale: 1.2
+}); 
+
+$('.js-tilt').tilt({
+    glare: true,
+    maxGlare: .5
+})
+
+
+
+</script>
+</body>
+</html>
